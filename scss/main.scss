@@ -1,25 +1,60 @@
 @font-face {
     font-family: "draw";
-    src: url(/dist/fonts/FZSJ-XRWFTJW.woff) format("woff");
+    src: url(../fonts/FZSJ-XRWFTJW.woff) format("woff");
 }
+
+@font-face {
+    font-family: "codeLight";
+    src: url(../fonts/CODE-Light.woff) format("woff");
+}
+
+@font-face {
+    font-family: "codeBold";
+    src: url(../fonts/CODE-Bold.woff) format("woff");
+}
+
 @function rem($px) {
     @return ($px/37.5px)+rem
 }
-*{
+
+* {
     margin: 0;
     padding: 0;
     font-family: 'draw', cursive, sans-serif;
 }
-html,body{
+
+$fz-1:rem(20px);
+$fz-1b:rem(25px);
+$fz-2:rem(35px);
+$fz-3:rem(52px);
+
+$green:rgba(38,166,154 ,1);
+$golden:#E0CCAA;
+$yellow:#E4E4B5;
+$orange:rgba(255,204,188 ,1);
+
+html,
+body {
     height: 100%;
     width: 100%;
+    -webkit-perspective: 1000;
+   -moz-perspective: 1000;
+   -ms-perspective: 1000;
+   perspective: 1000;
+   -webkit-transform: translateZ(0);
+   -moz-transform: translateZ(0);
+   -ms-transform: translateZ(0);
+   -o-transform: translateZ(0);
+   transform: translateZ(0);
 }
-body{    
+
+body {
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;    
-    &::after{
+    align-items: center;
+
+    &::after {
         content: '';
         position: absolute;
         z-index: 11;
@@ -27,21 +62,24 @@ body{
         height: 100%;
         left: 0;
         top: 0;
-        background-color: rgba($color: #000000, $alpha:0.2);    
+        background-color: rgba($color: #000000, $alpha:0.2);
     }
 }
 
-#main_swiper{
+#main_swiper {
     width: 100%;
     height: 100%;
     position: relative;
     z-index: 21;
-    .swiper-slide{
+
+    .swiper-slide {
         display: flex;
         flex-direction: column;
-        &#our_story_container{
+
+        &#our_story_container {
+
             // justify-content: center;
-            h2{
+            h2 {
                 margin-top: rem(40px);
                 position: relative;
                 z-index: 11;
@@ -49,8 +87,10 @@ body{
                 text-align: center;
                 text-align: left;
                 text-indent: 1rem;
+                font-size: $fz-3;
             }
-            &::before{
+
+            &::before {
                 content: '';
                 position: absolute;
                 width: 100%;
@@ -58,27 +98,81 @@ body{
                 z-index: 10;
                 left: 0;
                 top: 0;
+
                 background: {
-                    image:url(/dist/img/bg3.jpg);
-                    repeat:no-repeat;
+                    image: url(../img/bg.jpg);
+                    repeat: no-repeat;
                     size: cover;
-                    position: left center;
+                    position: center;
                 }
+
                 filter: blur(2px);
             }
         }
     }
 }
 
-#our_story{
+#welcome {
+    background: $orange;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    position: relative;
+    .welcome_cover{
+        padding: rem(15px);
+        position: absolute;
+        letter-spacing:rem(15px);
+        z-index: 5;
+        height: 80%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        p{
+            color: white;
+            font-weight: bold;
+            font-size:rem(77px);
+            font-family: 'codeBold', cursive, sans-serif;
+        }
+    }
+    .welcome_infos {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+        font-size: $fz-1b;
+
+        img {
+            width: 100%;
+        }
+
+        p {
+            font-family: 'codeBold', cursive, sans-serif;
+            margin-top: rem(10px);
+            &:last-of-type{
+                margin-bottom: rem(50px);
+            }
+            &:first-of-type{
+                margin-top: rem(40px);
+            }
+        }
+    }
+}
+
+#our_story {
     margin-top: rem(50px);
     position: relative;
     z-index: 20;
-    overflow:visible;
-    .swiper-slide{
-        &:first-of-type{
+    overflow: visible;
+
+    .swiper-slide {
+        &:first-of-type {
             margin-left: 20px;
         }
+
         height: rem(450px);
         border: 3px solid rgba($color: #ffffff, $alpha:1);
         background-color: rgba($color: #ffffff, $alpha:0.9);
@@ -86,10 +180,12 @@ body{
         opacity: 0.5;
         display: flex;
         flex-direction: column;
-        &.swiper-slide-active{
+
+        &.swiper-slide-active {
             opacity: 1;
         }
-        .time{
+
+        .time {
             z-index: 11;
             position: relative;
             width: rem(83px);
@@ -101,44 +197,55 @@ body{
             border: 1px solid #000000;
             margin: 10px;
             border-radius: 10px 0 0 0;
-            .month{
+
+            .month {
                 font-weight: bold;
-                font-size: rem(35px);
-                &.small{
+                font-size: $fz-2;
+
+                &.small {
                     font-size: rem(23px);
                 }
-                font-family: 'Comic Sans MS', cursive, sans-serif;
+
+                font-family: 'codeBold',
+                cursive,
+                sans-serif;
             }
-            .year{
-                font-size: rem(20px);
-                font-family: 'Comic Sans MS', cursive, sans-serif;
+
+            .year {
+                font-size: $fz-1;
+                font-family: 'codeBold', cursive, sans-serif;
             }
         }
-        .desc{
-            margin-top:rem(30px);
+
+        .desc {
+            margin-top: rem(30px);
             text-align: center;
             z-index: 11;
             position: relative;
         }
-        .img_cover{
+
+        .img_cover {
             z-index: 11;
             position: relative;
-            margin-top:rem(40px);
+            margin-top: rem(40px);
             text-align: center;
-            img{
+
+            img {
                 width: 85%;
                 border-radius: 0 0 15px 0;
             }
         }
     }
-    .swiper-pagination{
+
+    .swiper-pagination {
         bottom: rem(-50px);
         z-index: 22;
         display: flex;
         justify-content: center;
         align-items: center;
         width: 100vw;
-        .ourStory_pagination{
+
+        .ourStory_pagination {
             position: relative;
             z-index: 25;
             display: inline-block;
@@ -146,15 +253,165 @@ body{
             height: rem(10px);
             border-radius: 100%;
             background: #ffffff;
-            opacity:0.5;
+            opacity: 0.5;
             outline: none;
             transition: 0.2s all ease-in-out;
-            &.swiper-pagination-bullet-active{
+
+            &.swiper-pagination-bullet-active {
                 width: rem(40px);
-                border-radius:rem(10px);
-                opacity:1;
+                border-radius: rem(10px);
+                opacity: 1;
             }
         }
 
+    }
+}
+
+#our_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background: {
+        image: url(../img/pic7.jpg);
+        repeat: no-repeat;
+        position: center;
+        size: cover;
+    }
+
+    section {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+
+        &:first-of-type {
+            justify-content: flex-start;
+
+            background: {
+                image: url(../img/lanruqing.jpg);
+                repeat: no-repeat;
+                position: center;
+                size: cover;
+            }
+
+            ;
+        }
+
+        &:last-of-type {
+            justify-content: flex-end;
+
+            background: {
+                image: url(../img/msy.jpg);
+                repeat: no-repeat;
+                position: center;
+                size: cover;
+            }
+
+            ;
+        }
+
+        div {
+            background: rgba(255, 255, 255, 0.5);
+            padding: rem(20px) rem(30px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            h4 {
+                font-size: $fz-3;
+            }
+
+            p.name {
+                margin-top: rem(10px);
+                font-size: $fz-2;
+                font-family: 'codeLight', cursive, sans-serif;
+            }
+
+            p.phone {
+                margin-top: rem(10px);
+                font-size: $fz-1;
+                font-family: 'codeBold', cursive, sans-serif;
+                text-decoration: underline;
+
+                span {
+                    font-size: rem(30px);
+                }
+            }
+        }
+    }
+}
+
+#wedding_info {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        left: 0;
+        top: 0;
+
+        background: {
+            image: url(../img/bg4.jpg);
+            repeat: no-repeat;
+            size: cover;
+            position: center;
+        }
+
+        filter: blur(2px);
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 11;
+        left: 0;
+        top: 0;
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    section {
+        position: relative;
+        z-index: 12;
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 2px solid $golden;
+        color: $golden;
+        padding: rem(35px);
+
+        h4 {
+            font-size: $fz-3;
+        }
+
+        p {
+            font-size: $fz-2;
+            margin-top: rem(15px);
+            font-family: 'codeBold', cursive, sans-serif;
+
+            a {
+                color: $golden !important;
+                font-family: 'codeBold', cursive, sans-serif;
+            }
+
+            &.tips {
+                font-family: 'codeLight', cursive, sans-serif;
+                font-size: $fz-1;
+
+                span {
+                    font-family: 'codeBold', cursive, sans-serif;
+                }
+            }
+        }
     }
 }

@@ -3,25 +3,68 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
-    <link rel="stylesheet" href="/dist/css/main.css">
-    <script src="/dist/js/vue.js" defer></script>
-    <script src="/dist/js/main.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"">
+    <link rel="stylesheet" href="dist/css/swiper.min.css">
+    <link rel="stylesheet" href="dist/css/animate.min.css">
+    <link rel="stylesheet" href="dist/css/main.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1102246_860u74z3p3x.css">
+    <script src="dist/js/swiper.min.js"></script>
+    <script src="dist/js/main.js" defer></script>
+    <script src="dist/js/swiper.animate1.0.3.min.js"></script>
+    <link rel="preload" href="dist/fonts/CODE-Bold.woff" as="font" type="font/woff">
+    <link rel="preload" href="dist/fonts/CODE-Light.woff" as="font" type="font/woff">
+    <link rel="preload" href="dist/fonts/FZSJ-XRWFTJW.woff" as="font" type="font/woff">
     <title>欢迎参加兰如青和梅思雨的婚礼!</title>
 </head>
 
 <body>
     <div class="swiper-container" id="main_swiper">
         <div class="swiper-wrapper">
-            <div class="swiper-slide"></div>
+            <div class="swiper-slide" id="welcome">
+                <div class="welcome_cover">
+                    <P>INVITE</P>
+                    <P>YOU</P>
+                    <P>TO OUR</P>
+                    <P>WEDDING</P>
+                </div>
+                <div class="welcome_infos">
+                    <img src="dist/img/6V2A6431.jpg">
+                    <img src="dist/img/6V2A6745.jpg">
+                    <p>
+                        Lan & Mei
+                    </p>
+                    <p>
+                        30,Jun 2019
+                    </p>
+                </div>
+            </div>
+
+            <div class="swiper-slide" id="our_info">
+                    <section>
+                        <div>
+                            <h4>The Groom</h4>
+                            <p class="name">Lan Ruqing</p>
+                            <p class="phone">
+                                Call Me
+                            </p>
+                        </div>
+                    </section>
+                    <section>
+                        <div>
+                            <h4>The Bride</h4>
+                            <p class="name">Mei Siyu</p>
+                            <p class="phone">
+                                Call Me
+                            </p>
+                        </div>
+                    </section>
+                </div>
             <div class="swiper-slide" id="our_story_container">
-                <h2>We...</h2>
-                <div class="swiper-container" id="our_story">
+                <h2 class="ani"  swiper-animate-effect="slideInUp" swiper-animate-duration="0.5s">We...</h2>
+                <div class="swiper-container ani"  swiper-animate-effect="slideInRight" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s" id="our_story">
                     <div class="swiper-wrapper">
                         <!-- slide 1 -->
-                        <div class="swiper-slide">
+                        <div class="swiper-slide storys">
                             <p class='time'>
                                 <span class='month'>
                                     09
@@ -34,12 +77,12 @@
                                 First meet
                             </article>
                             <p class='img_cover'>
-                                <img src="/dist/img/pic5.jpg">
+                                <img src="dist/img/pic5.jpg">
                             </p>
                         </div>
 
                         <!-- slide 2 -->
-                        <div class="swiper-slide">
+                        <div class="swiper-slide storys">
                             <p class='time'>
                                 <span class='month'>
                                     11
@@ -52,14 +95,14 @@
                                 Fall in love
                             </article>
                             <p class='img_cover'>
-                                <img src="/dist/img/pic2.jpg">
+                                <img src="dist/img/pic8.jpg">
                             </p>
                         </div>
 
                         <!-- slide 3 -->
-                        <div class="swiper-slide">
+                        <div class="swiper-slide storys">
                             <p class='time'>
-                                <span class='month small'>
+                                <span class='month'>
                                     05
                                 </span>
                                 <span class='year'>
@@ -70,30 +113,68 @@
                                 Decided to marry
                             </article>
                             <p class='img_cover'>
-                                <img src="/dist/img/bg2.jpg">
+                                <img src="dist/img/mmexport1550158700031.jpg">
                             </p>
                         </div>
 
                         <!-- slide 4 -->
-                        <div class="swiper-slide">
+                        <div class="swiper-slide storys">
                             <p class='time'>
                                 <span class='month small'>
-                                    14,Feb
+                                    02
                                 </span>
                                 <span class='year'>
-                                    2018
+                                    2019
                                 </span>
                             </p>
                             <article class='desc'>
-                                Married
+                                Propose Marriage 
                             </article>
                             <p class='img_cover'>
-                                <img src="/dist/img/pic4b.jpg">
+                                <img src="dist/img/pic3.jpg">
                             </p>
                         </div>
+                        <!-- slide 5 -->
+                        <div class="swiper-slide storys">
+                                <p class='time'>
+                                    <span class='month small'>
+                                        14,Feb
+                                    </span>
+                                    <span class='year'>
+                                        2019
+                                    </span>
+                                </p>
+                                <article class='desc'>
+                                    Married
+                                </article>
+                                <p class='img_cover'>
+                                    <img src="dist/img/pic2.jpg">
+                                </p>
+                            </div>
                     </div>
                     <div class="swiper-pagination our_story_pagination"></div>
                 </div>
+            </div>
+
+            <div class="swiper-slide" id="wedding_info">
+                <section class="ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s">
+                    <h4>Informations</h4>
+                    <p>
+                        10 : 28
+                    </p>
+                    <p>
+                        30,Jun 2019
+                    </p>
+                    <p>
+                        <a target="_blank" id="gotoHotel" class="animated tada infinite slow"
+                            href="https://apis.map.qq.com/uri/v1/marker?marker=coord:38.913400,121.659060;title:南山宾馆;addr:辽宁省大连市中山区枫林街56号&referer=4GBBZ-RD562-RDSU3-CQQB5-SXOET-AMFA4">
+                            富丽华南山宾馆
+                        </a>
+                    </p>
+                    <p class="tips">
+                        <span>Tips:</span> 当天是中考,由于39中是中考考场,建议大家提前出门,公交出行~ 谢谢
+                    </p>
+                </section>
             </div>
         </div>
     </div>

@@ -1,15 +1,33 @@
 @font-face {
   font-family: "draw";
-  src: url(/dist/fonts/FZSJ-XRWFTJW.woff) format("woff"); }
+  src: url(../fonts/FZSJ-XRWFTJW.woff) format("woff"); }
+
+@font-face {
+  font-family: "codeLight";
+  src: url(../fonts/CODE-Light.woff) format("woff"); }
+
+@font-face {
+  font-family: "codeBold";
+  src: url(../fonts/CODE-Bold.woff) format("woff"); }
 
 * {
   margin: 0;
   padding: 0;
   font-family: 'draw', cursive, sans-serif; }
 
-html, body {
+html,
+body {
   height: 100%;
-  width: 100%; }
+  width: 100%;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0); }
 
 body {
   position: relative;
@@ -41,7 +59,8 @@ body {
       color: white;
       text-align: center;
       text-align: left;
-      text-indent: 1rem; }
+      text-indent: 1rem;
+      font-size: 1.38667rem; }
     #main_swiper .swiper-slide#our_story_container::before {
       content: '';
       position: absolute;
@@ -50,11 +69,51 @@ body {
       z-index: 10;
       left: 0;
       top: 0;
-      background-image: url(/dist/img/bg3.jpg);
+      background-image: url(../img/bg.jpg);
       background-repeat: no-repeat;
       background-size: cover;
-      background-position: left center;
+      background-position: center;
       filter: blur(2px); }
+
+#welcome {
+  background: #ffccbc;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  position: relative; }
+  #welcome .welcome_cover {
+    padding: 0.4rem;
+    position: absolute;
+    letter-spacing: 0.4rem;
+    z-index: 5;
+    height: 80%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; }
+    #welcome .welcome_cover p {
+      color: white;
+      font-weight: bold;
+      font-size: 2.05333rem;
+      font-family: 'codeBold', cursive, sans-serif; }
+  #welcome .welcome_infos {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-size: 0.66667rem; }
+    #welcome .welcome_infos img {
+      width: 100%; }
+    #welcome .welcome_infos p {
+      font-family: 'codeBold', cursive, sans-serif;
+      margin-top: 0.26667rem; }
+      #welcome .welcome_infos p:last-of-type {
+        margin-bottom: 1.33333rem; }
+      #welcome .welcome_infos p:first-of-type {
+        margin-top: 1.06667rem; }
 
 #our_story {
   margin-top: 1.33333rem;
@@ -88,12 +147,12 @@ body {
       #our_story .swiper-slide .time .month {
         font-weight: bold;
         font-size: 0.93333rem;
-        font-family: 'Comic Sans MS', cursive, sans-serif; }
+        font-family: 'codeBold', cursive, sans-serif; }
         #our_story .swiper-slide .time .month.small {
           font-size: 0.61333rem; }
       #our_story .swiper-slide .time .year {
         font-size: 0.53333rem;
-        font-family: 'Comic Sans MS', cursive, sans-serif; }
+        font-family: 'codeBold', cursive, sans-serif; }
     #our_story .swiper-slide .desc {
       margin-top: 0.8rem;
       text-align: center;
@@ -129,3 +188,102 @@ body {
         width: 1.06667rem;
         border-radius: 0.26667rem;
         opacity: 1; }
+
+#our_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-image: url(../img/pic7.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; }
+  #our_info section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%; }
+    #our_info section:first-of-type {
+      justify-content: flex-start;
+      background-image: url(../img/lanruqing.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover; }
+    #our_info section:last-of-type {
+      justify-content: flex-end;
+      background-image: url(../img/msy.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover; }
+    #our_info section div {
+      background: rgba(255, 255, 255, 0.5);
+      padding: 0.53333rem 0.8rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; }
+      #our_info section div h4 {
+        font-size: 1.38667rem; }
+      #our_info section div p.name {
+        margin-top: 0.26667rem;
+        font-size: 0.93333rem;
+        font-family: 'codeLight', cursive, sans-serif; }
+      #our_info section div p.phone {
+        margin-top: 0.26667rem;
+        font-size: 0.53333rem;
+        font-family: 'codeBold', cursive, sans-serif;
+        text-decoration: underline; }
+        #our_info section div p.phone span {
+          font-size: 0.8rem; }
+
+#wedding_info {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  #wedding_info::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    background-image: url(../img/bg4.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: blur(2px); }
+  #wedding_info::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 11;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.5); }
+  #wedding_info section {
+    position: relative;
+    z-index: 12;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #E0CCAA;
+    color: #E0CCAA;
+    padding: 0.93333rem; }
+    #wedding_info section h4 {
+      font-size: 1.38667rem; }
+    #wedding_info section p {
+      font-size: 0.93333rem;
+      margin-top: 0.4rem;
+      font-family: 'codeBold', cursive, sans-serif; }
+      #wedding_info section p a {
+        color: #E0CCAA !important;
+        font-family: 'codeBold', cursive, sans-serif; }
+      #wedding_info section p.tips {
+        font-family: 'codeLight', cursive, sans-serif;
+        font-size: 0.53333rem; }
+        #wedding_info section p.tips span {
+          font-family: 'codeBold', cursive, sans-serif; }
