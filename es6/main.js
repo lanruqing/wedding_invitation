@@ -38,9 +38,7 @@ var pageInit = () => {
     })
   })
 }
-// window.pageInit()
-window.onload = () => {
-  var bgm = document.getElementById('bgm');
+var bgm = document.getElementById('bgm');
   bgm.oncanplaythrough = () => {
     console.log('can play')
   setTimeout(function () {
@@ -48,6 +46,8 @@ window.onload = () => {
     document.getElementById('loading_container').style.display = 'none';
     document.getElementById('need_music').classList.add('active');
   }, 3000)}
+window.onload = () => {
+  
   var main_swiper = new Swiper('#main_swiper', {
     direction: 'vertical',
     noSwiping: true,
