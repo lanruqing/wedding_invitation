@@ -6,37 +6,33 @@ function pageInit() {
     image.src = "dist/img/" + img;
     image.addEventListener('load', () => {
       if (index == images.length - 1) {
-        var bgm = document.getElementById('bgm');
+        setTimeout(function () {
+          document.getElementById('loading').classList.remove('swiper-no-swiping');
+          document.getElementById('loading_container').style.display = 'none';
+          document.getElementById('need_music').classList.add('active');
+          var music_init = Array.from(document.querySelectorAll('.music_init'));
+          music_init.forEach((m, i) => {
+            let val = m.getAttribute('value');
+            console.log(val);
 
-        bgm.oncanplaythrough = () => {
-          setTimeout(function () {
-            document.getElementById('loading').classList.remove('swiper-no-swiping');
-            document.getElementById('loading_container').style.display = 'none';
-            document.getElementById('need_music').classList.add('active');
-            var music_init = Array.from(document.querySelectorAll('.music_init'));
-            music_init.forEach((m, i) => {
-              let val = m.getAttribute('value');
-              console.log(val);
+            m.onclick = () => {
+              MusicStatus = JSON.parse(val);
+              music_init[0].classList.remove('choosed');
+              music_init[1].classList.remove('choosed');
+              m.classList.add('choosed');
 
-              m.onclick = () => {
-                MusicStatus = JSON.parse(val);
-                music_init[0].classList.remove('choosed');
-                music_init[1].classList.remove('choosed');
-                m.classList.add('choosed');
+              if (MusicStatus) {
+                bgm.play();
+              } else {
+                bgm.pause();
+              }
 
-                if (MusicStatus) {
-                  bgm.play();
-                } else {
-                  bgm.pause();
-                }
-
-                setTimeout(function () {
-                  document.getElementById('loading').display = 'none';
-                }, 1000);
-              };
-            });
-          }, 3000);
-        };
+              setTimeout(function () {
+                document.getElementById('loading').display = 'none';
+              }, 1000);
+            };
+          });
+        }, 3000);
       }
     });
   });
@@ -51,37 +47,33 @@ if (document.body.clientWidth <= 580) {
 } else {
   document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 20 + 'px';
   console.log('pc');
-}
+} // var bgm = document.getElementById('bgm');
+//       bgm.oncanplaythrough = () => {
+//         setTimeout(function () {
+//           document.getElementById('loading_container').style.display = 'none';
+//           document.getElementById('need_music').classList.add('active');
+//           var music_init = Array.from(document.querySelectorAll('.music_init'));
+//           music_init.forEach((m, i) => {
+//             let val = m.getAttribute('value');
+//             console.log(val)
+//             m.onclick = () => {
+//               MusicStatus = JSON.parse(val)
+//               music_init[0].classList.remove('choosed');
+//               music_init[1].classList.remove('choosed')
+//               m.classList.add('choosed')
+//               if (MusicStatus) {
+//                 bgm.play()
+//               } else {
+//                 bgm.pause()
+//               }
+//               document.getElementById('loading').classList.add('slideOutUp')
+//             }
+//           })
+//         }, 3000)
+//       }
 
-var bgm = document.getElementById('bgm');
 
-bgm.oncanplaythrough = () => {
-  setTimeout(function () {
-    document.getElementById('loading_container').style.display = 'none';
-    document.getElementById('need_music').classList.add('active');
-    var music_init = Array.from(document.querySelectorAll('.music_init'));
-    music_init.forEach((m, i) => {
-      let val = m.getAttribute('value');
-      console.log(val);
-
-      m.onclick = () => {
-        MusicStatus = JSON.parse(val);
-        music_init[0].classList.remove('choosed');
-        music_init[1].classList.remove('choosed');
-        m.classList.add('choosed');
-
-        if (MusicStatus) {
-          bgm.play();
-        } else {
-          bgm.pause();
-        }
-
-        document.getElementById('loading').classList.add('slideOutUp');
-      };
-    });
-  }, 3000);
-};
-
+pageInit();
 var main_swiper = new Swiper('#main_swiper', {
   direction: 'vertical',
   noSwiping: true,
