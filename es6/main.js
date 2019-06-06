@@ -46,18 +46,9 @@ var bgm = document.getElementById('bgm');
     document.getElementById('loading_container').style.display = 'none';
     document.getElementById('need_music').classList.add('active');
   }, 3000)}
+
 window.onload = () => {
-  
-  var main_swiper = new Swiper('#main_swiper', {
-    direction: 'vertical',
-    noSwiping: true,
-    lazy: {
-      loadPrevNext: true,
-      loadPrevNextAmount: 2,
-    },
-    on: {
-      init: function () {
-        var music_init = Array.from(document.querySelectorAll('.music_init'));
+  var music_init = Array.from(document.querySelectorAll('.music_init'));
           music_init.forEach((m, i) => {
             let val = m.getAttribute('value');
             console.log(val)
@@ -74,7 +65,16 @@ window.onload = () => {
               setTimeout(function(){main_swiper.slideNext(2000)},1000)
             }
           })
-        window.pageInit();
+  var main_swiper = new Swiper('#main_swiper', {
+    direction: 'vertical',
+    noSwiping: true,
+    lazy: {
+      loadPrevNext: true,
+      loadPrevNextAmount: 2,
+    },
+    on: {
+      init: function () {
+        
         swiperAnimateCache(this);
         swiperAnimate(this);
         var wi_swiper = new Swiper('#our_story', {

@@ -44,6 +44,28 @@ bgm.oncanplaythrough = () => {
 };
 
 window.onload = () => {
+  var music_init = Array.from(document.querySelectorAll('.music_init'));
+  music_init.forEach((m, i) => {
+    let val = m.getAttribute('value');
+    console.log(val);
+
+    m.onclick = () => {
+      MusicStatus = JSON.parse(val);
+      music_init[0].classList.remove('choosed');
+      music_init[1].classList.remove('choosed');
+      m.classList.add('choosed');
+
+      if (MusicStatus) {
+        bgm.play();
+      } else {
+        bgm.pause();
+      }
+
+      setTimeout(function () {
+        main_swiper.slideNext(2000);
+      }, 1000);
+    };
+  });
   var main_swiper = new Swiper('#main_swiper', {
     direction: 'vertical',
     noSwiping: true,
@@ -53,29 +75,6 @@ window.onload = () => {
     },
     on: {
       init: function () {
-        var music_init = Array.from(document.querySelectorAll('.music_init'));
-        music_init.forEach((m, i) => {
-          let val = m.getAttribute('value');
-          console.log(val);
-
-          m.onclick = () => {
-            MusicStatus = JSON.parse(val);
-            music_init[0].classList.remove('choosed');
-            music_init[1].classList.remove('choosed');
-            m.classList.add('choosed');
-
-            if (MusicStatus) {
-              bgm.play();
-            } else {
-              bgm.pause();
-            }
-
-            setTimeout(function () {
-              main_swiper.slideNext(2000);
-            }, 1000);
-          };
-        });
-        window.pageInit();
         swiperAnimateCache(this);
         swiperAnimate(this);
         var wi_swiper = new Swiper('#our_story', {
