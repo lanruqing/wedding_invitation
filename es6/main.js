@@ -42,6 +42,7 @@ var pageInit = () => {
 window.onload = () => {
   var bgm = document.getElementById('bgm');
   bgm.oncanplaythrough = () => {
+    console.log('can play')
   setTimeout(function () {
     document.getElementById('loading').classList.remove('swiper-no-swiping');
     document.getElementById('loading_container').style.display = 'none';
