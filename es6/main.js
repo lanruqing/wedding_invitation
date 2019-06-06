@@ -1,6 +1,4 @@
-document.addEventListener('touchmove', function (e) {
-  e.preventDefault();
-}, false);
+
 if (document.body.clientWidth <= 580) {
   document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 12 + 'px';
   console.log('mobile');
