@@ -1,14 +1,3 @@
-if (document.body.clientWidth <= 580) {
-  document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 12 + 'px';
-  console.log('mobile');
-} else if (document.body.clientWidth <= 1000) {
-  document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 15 + 'px';
-  console.log('tablet');
-} else {
-  document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 20 + 'px';
-  console.log('pc');
-}
-
 function pageInit() {
   var MusicStatus = false;
   let images = ['6V2A6431.jpg', '6V2A6745.jpg', 'bg.jpg', 'bg2.jpg', 'bg4.jpg', 'pic2.jpg', 'pic3.jpg', 'pic5.jpg', 'pic8.jpg'];
@@ -54,6 +43,17 @@ function pageInit() {
 }
 
 window.onload = () => {
+  if (document.body.clientWidth <= 580) {
+    document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 12 + 'px';
+    console.log('mobile');
+  } else if (document.body.clientWidth <= 1000) {
+    document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 15 + 'px';
+    console.log('tablet');
+  } else {
+    document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 20 + 'px';
+    console.log('pc');
+  }
+
   var bgm = document.getElementById('bgm');
 
   bgm.oncanplaythrough = () => {
