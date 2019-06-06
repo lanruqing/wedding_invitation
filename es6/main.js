@@ -38,7 +38,8 @@ var pageInit = () => {
     })
   })
 }
-var bgm = document.getElementById('bgm');
+window.onload = () => {
+  var bgm = document.getElementById('bgm');
   bgm.oncanplaythrough = () => {
     console.log('can play')
   setTimeout(function () {
@@ -46,8 +47,6 @@ var bgm = document.getElementById('bgm');
     document.getElementById('loading_container').style.display = 'none';
     document.getElementById('need_music').classList.add('active');
   }, 3000)}
-
-window.onload = () => {
   var music_init = Array.from(document.querySelectorAll('.music_init'));
           music_init.forEach((m, i) => {
             let val = m.getAttribute('value');
