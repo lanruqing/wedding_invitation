@@ -42,7 +42,7 @@ function pageInit() {
                 }
 
                 setTimeout(function () {
-                  main_swiper.slideNext(2000);
+                  document.getElementById('loading').display = 'none';
                 }, 1000);
               };
             });
@@ -54,16 +54,47 @@ function pageInit() {
 }
 
 window.onload = () => {
+  var bgm = document.getElementById('bgm');
+
+  bgm.oncanplaythrough = () => {
+    setTimeout(function () {
+      document.getElementById('loading_container').style.display = 'none';
+      document.getElementById('need_music').classList.add('active');
+      var music_init = Array.from(document.querySelectorAll('.music_init'));
+      music_init.forEach((m, i) => {
+        let val = m.getAttribute('value');
+        console.log(val);
+
+        m.onclick = () => {
+          MusicStatus = JSON.parse(val);
+          music_init[0].classList.remove('choosed');
+          music_init[1].classList.remove('choosed');
+          m.classList.add('choosed');
+
+          if (MusicStatus) {
+            bgm.play();
+          } else {
+            bgm.pause();
+          }
+
+          setTimeout(function () {
+            document.getElementById('loading').classList.add('slideOutUp');
+          }, 1000);
+        };
+      });
+    }, 3000);
+  };
+
   var main_swiper = new Swiper('#main_swiper', {
     direction: 'vertical',
     noSwiping: true,
+    updateOnImagesReady: true,
     lazy: {
       loadPrevNext: true,
       loadPrevNextAmount: 2
     },
     on: {
       init: function () {
-        window.pageInit();
         swiperAnimateCache(this);
         swiperAnimate(this);
         var wi_swiper = new Swiper('#our_story', {
@@ -95,8 +126,7 @@ window.onload = () => {
         swiperAnimate(this);
       }
     }
-  }); // window.pageInit();
-
+  });
   var phones = Array.from(document.querySelectorAll('.phone'));
   phones.forEach((p, i) => {
     p.onclick = () => {

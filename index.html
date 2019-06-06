@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"">
-    <link rel="stylesheet" href="dist/css/swiper.min.css">
+    <link rel=" stylesheet" href="dist/css/swiper.min.css">
     <link rel="stylesheet" href="dist/css/animate.min.css">
     <link rel="stylesheet" href="dist/css/main.css">
     <link rel="stylesheet" href="//at.alicdn.com/t/font_1102246_860u74z3p3x.css">
@@ -19,27 +19,32 @@
 
 <body>
     <audio src="dist/music/ICanNotChange.mp3" preload id='bgm' loop></audio>
+    <div id="loading" class="animated">
+        <div id="loading_container">
+            <p>
+                Hello
+                <br />
+                I`m Loading
+            </p>
+            <div class="lds-ellipsis">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div id="need_music">
+            <p>
+                Need some music ?
+            </p>
+            <p class="music_choose">
+                <span class="music_init" value="true">Yes</span>
+                <span class="music_init" value="false">No</span>
+            </p>
+        </div>
+    </div>
     <div class="swiper-container" id="main_swiper">
         <div class="swiper-wrapper">
-                <div class="swiper-slide swiper-no-swiping" id="loading">
-                    <div id="loading_container">
-                        <p>
-                            Hello
-                            <br/>
-                            I`m Loading
-                        </p>
-                        <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-                    </div>
-                    <div id="need_music">
-                        <p>
-                            Need some music ?
-                        </p>
-                        <p class="music_choose">
-                            <span class="music_init" value="true">Yes</span>
-                            <span class="music_init" value="false">No</span>
-                        </p>
-                    </div>
-                </div>
             <div class="swiper-slide" id="welcome">
                 <div class="welcome_cover">
                     <P>INVITE</P>
@@ -59,28 +64,31 @@
             </div>
 
             <div class="swiper-slide" id="our_info" style="background-image:url(dist/img/bg2.jpg?.jpg?img_version=1.2)">
-                    <div class="our_info_inner">
-                        <div class="ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="0.5s" swiper-animate-deelay="0.3s">
-                            <h4>The Groom</h4>
-                            <p class="name">Lan Ruqing</p>
-                            <p class="phone" title="tel:+8615040501365">
-                                Call Me
-                            </p>
-                        </div>
-                    </div>
-                    <div class="our_info_inner">
-                        <div class="ani" swiper-animate-effect="slideInRight" swiper-animate-duration="0.5s" swiper-animate-deelay="0.3s">
-                            <h4>The Bride</h4>
-                            <p class="name">Mei Siyu</p>
-                            <p class="phone" title="tel:+8613940943132">
-                                Call Me
-                            </p>
-                        </div>
+                <div class="our_info_inner">
+                    <div class="ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="0.5s"
+                        swiper-animate-deelay="0.3s">
+                        <h4>The Groom</h4>
+                        <p class="name">Lan Ruqing</p>
+                        <p class="phone" title="tel:+8615040501365">
+                            Call Me
+                        </p>
                     </div>
                 </div>
+                <div class="our_info_inner">
+                    <div class="ani" swiper-animate-effect="slideInRight" swiper-animate-duration="0.5s"
+                        swiper-animate-deelay="0.3s">
+                        <h4>The Bride</h4>
+                        <p class="name">Mei Siyu</p>
+                        <p class="phone" title="tel:+8613940943132">
+                            Call Me
+                        </p>
+                    </div>
+                </div>
+            </div>
             <div class="swiper-slide" id="our_story_container">
                 <h2 class="ani" swiper-animate-effect="slideInUp" swiper-animate-duration="0.5s">We...</h2>
-                <div class="swiper-container ani"  swiper-animate-effect="slideInRight" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s" id="our_story">
+                <div class="swiper-container ani" swiper-animate-effect="slideInRight" swiper-animate-duration="0.5s"
+                    swiper-animate-delay="0.5s" id="our_story">
                     <div class="swiper-wrapper">
                         <!-- slide 1 -->
                         <div class="swiper-slide storys">
@@ -147,7 +155,7 @@
                                 </span>
                             </p>
                             <article class='desc'>
-                                Propose Marriage 
+                                Propose Marriage
                             </article>
                             <p class='img_cover'>
                                 <img src="dist/img/pic3.jpg?.jpg?img_version=1.1">
@@ -155,21 +163,21 @@
                         </div>
                         <!-- slide 5 -->
                         <div class="swiper-slide storys">
-                                <p class='time'>
-                                    <span class='month small'>
-                                        14,Feb
-                                    </span>
-                                    <span class='year'>
-                                        2019
-                                    </span>
-                                </p>
-                                <article class='desc'>
-                                    Married
-                                </article>
-                                <p class='img_cover'>
-                                    <img src="dist/img/pic4.jpg?.jpg?img_version=1.1">
-                                </p>
-                            </div>
+                            <p class='time'>
+                                <span class='month small'>
+                                    14,Feb
+                                </span>
+                                <span class='year'>
+                                    2019
+                                </span>
+                            </p>
+                            <article class='desc'>
+                                Married
+                            </article>
+                            <p class='img_cover'>
+                                <img src="dist/img/pic4.jpg?.jpg?img_version=1.1">
+                            </p>
+                        </div>
                     </div>
                     <div class="swiper-pagination our_story_pagination"></div>
                 </div>
@@ -198,4 +206,5 @@
         </div>
     </div>
 </body>
+
 </html>
