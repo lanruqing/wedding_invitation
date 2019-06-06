@@ -22,13 +22,13 @@ function pageInit() {
               m.classList.add('choosed');
 
               if (MusicStatus) {
-                bgm.play();
+                document.getElementById('bgm').play();
               } else {
-                bgm.pause();
+                document.getElementById('bgm').pause();
               }
 
               setTimeout(function () {
-                document.getElementById('loading').display = 'none';
+                document.getElementById('loading').classList.add('slideOutUp');
               }, 1000);
             };
           });
