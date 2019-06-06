@@ -9,10 +9,9 @@ if (document.body.clientWidth <= 580) {
   console.log('pc');
 }
 
-var MusicStatus = false;
-var images = ['6V2A6431.jpg', '6V2A6745.jpg', 'bg.jpg', 'bg2.jpg', 'bg4.jpg', 'pic2.jpg', 'pic3.jpg', 'pic5.jpg', 'pic8.jpg'];
-
-var pageInit = () => {
+function pageInit() {
+  var MusicStatus = false;
+  let images = ['6V2A6431.jpg', '6V2A6745.jpg', 'bg.jpg', 'bg2.jpg', 'bg4.jpg', 'pic2.jpg', 'pic3.jpg', 'pic5.jpg', 'pic8.jpg'];
   images.forEach((img, index) => {
     var image = new Image();
     image.src = "dist/img/" + img;
@@ -25,47 +24,36 @@ var pageInit = () => {
             document.getElementById('loading').classList.remove('swiper-no-swiping');
             document.getElementById('loading_container').style.display = 'none';
             document.getElementById('need_music').classList.add('active');
+            var music_init = Array.from(document.querySelectorAll('.music_init'));
+            music_init.forEach((m, i) => {
+              let val = m.getAttribute('value');
+              console.log(val);
+
+              m.onclick = () => {
+                MusicStatus = JSON.parse(val);
+                music_init[0].classList.remove('choosed');
+                music_init[1].classList.remove('choosed');
+                m.classList.add('choosed');
+
+                if (MusicStatus) {
+                  bgm.play();
+                } else {
+                  bgm.pause();
+                }
+
+                setTimeout(function () {
+                  main_swiper.slideNext(2000);
+                }, 1000);
+              };
+            });
           }, 3000);
         };
       }
     });
   });
-};
+}
 
 window.onload = () => {
-  var bgm = document.getElementById('bgm');
-
-  bgm.oncanplaythrough = () => {
-    console.log('can play');
-    setTimeout(function () {
-      document.getElementById('loading').classList.remove('swiper-no-swiping');
-      document.getElementById('loading_container').style.display = 'none';
-      document.getElementById('need_music').classList.add('active');
-    }, 3000);
-  };
-
-  var music_init = Array.from(document.querySelectorAll('.music_init'));
-  music_init.forEach((m, i) => {
-    let val = m.getAttribute('value');
-    console.log(val);
-
-    m.onclick = () => {
-      MusicStatus = JSON.parse(val);
-      music_init[0].classList.remove('choosed');
-      music_init[1].classList.remove('choosed');
-      m.classList.add('choosed');
-
-      if (MusicStatus) {
-        bgm.play();
-      } else {
-        bgm.pause();
-      }
-
-      setTimeout(function () {
-        main_swiper.slideNext(2000);
-      }, 1000);
-    };
-  });
   var main_swiper = new Swiper('#main_swiper', {
     direction: 'vertical',
     noSwiping: true,
@@ -75,6 +63,7 @@ window.onload = () => {
     },
     on: {
       init: function () {
+        window.pageInit();
         swiperAnimateCache(this);
         swiperAnimate(this);
         var wi_swiper = new Swiper('#our_story', {
