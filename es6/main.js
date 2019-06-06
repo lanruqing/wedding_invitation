@@ -38,8 +38,15 @@ var pageInit = () => {
     })
   })
 }
-window.pageInit()
+// window.pageInit()
 window.onload = () => {
+  var bgm = document.getElementById('bgm');
+  bgm.oncanplaythrough = () => {
+  setTimeout(function () {
+    document.getElementById('loading').classList.remove('swiper-no-swiping');
+    document.getElementById('loading_container').style.display = 'none';
+    document.getElementById('need_music').classList.add('active');
+  }, 3000)}
   var main_swiper = new Swiper('#main_swiper', {
     direction: 'vertical',
     noSwiping: true,
