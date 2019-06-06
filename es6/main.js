@@ -78,9 +78,7 @@ var bgm = document.getElementById('bgm');
               } else {
                 bgm.pause()
               }
-              setTimeout(function () {
-                document.getElementById('loading').classList.add('slideOutUp')
-              }, 1000)
+              document.getElementById('loading').classList.add('slideOutUp')
             }
           })
         }, 3000)
