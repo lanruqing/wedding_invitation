@@ -10,10 +10,21 @@
   font-family: "codeBold";
   src: url(../fonts/CODE-Bold.woff) format("woff"); }
 
-* {
+html,
+body,
+div,
+p,
+section,
+span,
+a,
+img,
+i,
+h1,
+h2,
+h3,
+h4 {
   margin: 0;
-  padding: 0;
-  font-family: 'draw', cursive, sans-serif; }
+  padding: 0; }
 
 * {
   -webkit-overflow-scrolling: touch;
@@ -31,9 +42,12 @@ body {
   -moz-transform: translate3d(0, 0, 0);
   -ms-transform: translate3d(0, 0, 0);
   -o-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0); }
+  transform: translate3d(0, 0, 0);
+  font-family: 'draw', cursive, sans-serif; }
 
-div, section, img {
+div,
+section,
+img {
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
   -ms-transform: translate3d(0, 0, 0);
@@ -84,28 +98,9 @@ body {
   #main_swiper .swiper-slide {
     display: flex;
     flex-direction: column; }
-    #main_swiper .swiper-slide#our_story_container h2 {
-      margin-top: 1.06667rem;
-      position: relative;
-      z-index: 11;
-      color: white;
-      text-align: center;
-      text-align: left;
-      text-indent: 1rem;
-      font-size: 1.38667rem; }
-    #main_swiper .swiper-slide#our_story_container::before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      z-index: 10;
-      left: 0;
-      top: 0;
-      background-image: url(../img/bg.jpg?.jpg?img_version=1.2);
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      filter: blur(2px); }
+  #main_swiper > .swiper-slide {
+    height: 100vh;
+    width: 100vw; }
 
 #loading {
   position: fixed;
@@ -244,6 +239,30 @@ body {
         margin-bottom: 0.66667rem; }
       #welcome .welcome_infos p:first-of-type {
         margin-top: 0.53333rem; }
+
+#our_story_container h2 {
+  margin-top: 1.06667rem;
+  position: relative;
+  z-index: 11;
+  color: white;
+  text-align: center;
+  text-align: left;
+  text-indent: 1rem;
+  font-size: 1.38667rem; }
+
+#our_story_container::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  background-image: url(../img/bg.jpg?.jpg?img_version=1.2);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: blur(2px); }
 
 #our_story {
   margin-top: 0.8rem;

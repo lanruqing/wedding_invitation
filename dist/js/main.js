@@ -1,5 +1,3 @@
-var MusicStatus = false;
-
 function pageInit() {
   let images = ['6V2A6431.jpg', '6V2A6745.jpg', 'bg.jpg', 'bg2.jpg', 'bg4.jpg', 'pic2.jpg', 'pic3.jpg', 'pic5.jpg', 'pic8.jpg'];
   images.forEach((img, index) => {
@@ -15,14 +13,16 @@ function pageInit() {
           music_init.forEach((m, i) => {
             let val = m.getAttribute('value');
             console.log(val);
+
             m.onclick = () => {
               MusicStatus = JSON.parse(val);
               music_init[0].classList.remove('choosed');
               music_init[1].classList.remove('choosed');
               m.classList.add('choosed');
+
               if (MusicStatus) {
                 document.getElementById('bgm').play();
-                document.querySelector('#music_btn').classList.add('playing')
+                document.querySelector('#music_btn').classList.add('playing');
               } else {
                 document.getElementById('bgm').pause();
               }
@@ -38,6 +38,18 @@ function pageInit() {
   });
 }
 
+document.querySelector('#music_btn').onclick = () => {
+  if (MusicStatus) {
+    document.getElementById('bgm').pause();
+    document.querySelector('#music_btn').classList.remove('playing');
+  } else {
+    document.getElementById('bgm').play();
+    document.querySelector('#music_btn').classList.add('playing');
+  }
+
+  MusicStatus = !MusicStatus;
+};
+
 if (document.body.clientWidth <= 580) {
   document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 12 + 'px';
   console.log('mobile');
@@ -48,28 +60,11 @@ if (document.body.clientWidth <= 580) {
   document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 20 + 'px';
   console.log('pc');
 }
-document.querySelector('#bgm').addEventListener('canplay',()=>{
-  pageInit();
-})
 
-document.querySelector('#music_btn').onclick = () => {
-  if (MusicStatus) {
-    document.getElementById('bgm').pause();
-    document.querySelector('#music_btn').classList.remove('playing');
-  } else {
-    document.getElementById('bgm').play();
-    document.querySelector('#music_btn').classList.add('playing');
-  }
-  MusicStatus = !MusicStatus
-}
+pageInit();
 var main_swiper = new Swiper('#main_swiper', {
   direction: 'vertical',
   noSwiping: true,
-  updateOnImagesReady: true,
-  lazy: {
-    loadPrevNext: true,
-    loadPrevNextAmount: 2
-  },
   on: {
     init: function () {
       swiperAnimateCache(this);
