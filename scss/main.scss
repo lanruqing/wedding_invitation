@@ -77,7 +77,30 @@ body {
         background-color: rgba($color: #000000, $alpha:0.2);
     }
 }
-
+#music_btn{
+    position: fixed;
+    right: rem(10px);
+    top:rem(10px);
+    width: 50px;
+    height: 50px;
+    z-index: 22;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: rem(40px);
+    &.playing{
+        animation: playMusic 0.8s infinite backwards;
+    }
+}
+@keyframes playMusic{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
 #main_swiper {
     width: 100%;
     height: 100%;
@@ -87,40 +110,10 @@ body {
     .swiper-slide {
         display: flex;
         flex-direction: column;
-
-        &#our_story_container {
-
-            // justify-content: center;
-            h2 {
-                margin-top: rem(40px);
-                position: relative;
-                z-index: 11;
-                color: white;
-                text-align: center;
-                text-align: left;
-                text-indent: 1rem;
-                font-size: $fz-3;
-            }
-
-            &::before {
-                content: '';
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                z-index: 10;
-                left: 0;
-                top: 0;
-
-                background: {
-                    image: url(../img/bg.jpg?.jpg?img_version=1.2);
-                    repeat: no-repeat;
-                    size: cover;
-                    position: center;
-                }
-
-                filter: blur(2px);
-            }
-        }
+    }
+    &>.swiper-slide{        
+        height: 100vh;
+        width: 100vw;
     }
 }
 #loading{
@@ -228,9 +221,14 @@ body {
             justify-content: space-around;
             align-items: center;
             span{
+                transition: all 0.5s linear;
                 margin: rem(10px);
                 &.choosed{
                     color: darken($golden,30%);
+                }
+                animation: scale 0.5s infinite alternate;
+                &:last-of-type{
+                    animation: scale 0.6s 0.5s infinite alternate;
                 }
             }
         }
@@ -288,7 +286,38 @@ body {
         }
     }
 }
+&#our_story_container {
+    // justify-content: center;
+    h2 {
+        margin-top: rem(40px);
+        position: relative;
+        z-index: 11;
+        color: white;
+        text-align: center;
+        text-align: left;
+        text-indent: 1rem;
+        font-size: $fz-3;
+    }
 
+    &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        left: 0;
+        top: 0;
+
+        background: {
+            image: url(../img/bg.jpg?.jpg?img_version=1.2);
+            repeat: no-repeat;
+            size: cover;
+            position: center;
+        }
+
+        filter: blur(2px);
+    }
+}
 #our_story {
     margin-top: rem(30px);
     position: relative;
@@ -521,5 +550,13 @@ body {
                 }
             }
         }
+    }
+}
+@keyframes scale{
+    0%{
+        transform: scale(1)
+    }
+    100%{
+        transform: scale(1.1)
     }
 }
